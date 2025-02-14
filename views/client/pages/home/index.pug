@@ -1,0 +1,71 @@
+extends ../../layouts/default.pug
+
+block main
+    div#heroCarousel(class='carousel slide' data-bs-ride='carousel')
+        div(class='carousel-inner')
+            div(class='carousel-item active')
+                img(src='/client/images/carousel.jpg' class='d-block w-100' alt='Event')
+                div(class='carousel-caption')
+                    h1 Khám Phá Những Sự Kiện Âm Nhạc Tuyệt Vời
+                    p Đặt vé cho những sự kiện tuyệt vời nhất
+                    a(href='#' class='btn btn-primary btn-lg') Khám Phá Ngay
+
+    section(class='events py-4')
+        div(class='container')
+            div(class='d-flex justify-content-between align-items-center mb-4')
+                h2(class='section-title text-white') Sự kiện đặc sắc
+                //- div(class='dropdown')
+                //-     button(class='btn btn-outline-secondary dropdown-toggle' type='button' data-bs-toggle='dropdown') Filter
+                //-     ul(class='dropdown-menu')
+                //-         li
+                //-             a(class='dropdown-item' href='#') Date
+                //-         li
+                //-             a(class='dropdown-item' href='#') Price
+                //-         li
+                //-             a(class='dropdown-item' href='#') Location
+            div(class='row g-4')
+                div(class='col-md-6 col-lg-4')
+                    div(class='event-card')
+                        img(src='https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3' alt='Concert')
+                        div(class='event-content bg-dark text-white')
+                            h3 Summer Music Festival
+                            p(class='date text-white')
+                                i(class='bi bi-calendar3')
+                                | July 15, 2024
+                            p(class='location text-white')
+                                i(class='bi bi-geo-alt')
+                                | Central Park
+                            p(class='price' style="color: rgb(45, 194, 117)")
+                                i(class='bi bi-tag')
+                                | $49 - $149
+                            button(class='btn btn-primary w-100') Book Now
+                div(class='col-md-6 col-lg-4')
+                    div(class='event-card')
+                        img(src='https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3' alt='Concert')
+                        div(class='event-content bg-dark text-white')
+                            h3 Summer Music Festival
+                            p(class='date text-white')
+                                i(class='bi bi-calendar3')
+                                | July 15, 2024
+                            p(class='location text-white')
+                                i(class='bi bi-geo-alt')
+                                | Central Park
+                            p(class='price' style="color: rgb(45, 194, 117)")
+                                i(class='bi bi-tag')
+                                | $49 - $149
+                            button(class='btn btn-primary w-100') Book Now
+                div(class='col-md-6 col-lg-4')
+                    div(class='event-card')
+                        img(src='https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3' alt='Concert')
+                        div(class='event-content bg-dark text-white')
+                            h3 Summer Music Festival
+                            p(class='date text-white')
+                                i(class='bi bi-calendar3')
+                                | July 15, 2024
+                            p(class='location text-white')
+                                i(class='bi bi-geo-alt')
+                                | Central Park
+                            p(class='price' style="color: rgb(45, 194, 117)")
+                                i(class='bi bi-tag')
+                                | $49 - $149
+                            button(class='btn btn-primary w-100') Book Now

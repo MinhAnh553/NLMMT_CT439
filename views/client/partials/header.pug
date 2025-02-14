@@ -1,0 +1,24 @@
+header(class='fixed-top')
+    nav(class='navbar navbar-expand-lg')
+        div(class='container-fluid')
+            a(class='navbar-brand' href='/') MelodyMeet
+                img(src='/client/images/logo.png' alt='Eventbrite Logo' height='30')
+            button(class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarContent')
+                span(class='navbar-toggler-icon')
+            div#navbarContent(class='collapse navbar-collapse')
+                form(class='d-flex search-form mx-auto')
+                    div(class='input-group')
+                        span(class='input-group-text')
+                            i(class='bi bi-search')
+                        input(class='form-control' type='search' placeholder='Tìm kiếm' aria-label='Search')
+                ul(class='navbar-nav mb-2 mb-lg-0 gap-2')
+                    li(class='nav-item')
+                        a(class='nav-link create-event' href='#') Tạo sự kiện
+                    li(class='nav-item')
+                        a(class='nav-link custom-nav-link d-flex align-items-center' href='#')
+                            i(class='bi bi-ticket-perforated me-2')
+                            | Vé của tôi
+                
+                div(class='auth-buttons ms-3')
+                    button(class='btn btn-outline-primary me-2') Đăng nhập
+                    button(class='btn btn-primary') Đăng ký
