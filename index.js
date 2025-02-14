@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
+import bodyParser from 'body-parser';
 
 import * as database from './config/database.js';
 import { clientRoute } from './routes/client/indexRoute.js';
@@ -12,6 +13,11 @@ dotenv.config();
 // App, port
 const app = express();
 const port = process.env.PORT;
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
 
 // Config view
 app.set('views', path.join(process.cwd(), 'views'));

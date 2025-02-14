@@ -1,0 +1,50 @@
+div#registerModal(class='modal fade' tabindex='-1' aria-labelledby='registerModalLabel' aria-hidden='true')
+    div(class='modal-dialog modal-dialog-centered')
+        div(class='modal-content glass-effect')
+            div(class='modal-header border-0')
+                h4#registerModalLabel(class='modal-title fw-bold') Đăng ký tài khoản
+                button(type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close')
+            div(class='modal-body p-4')
+                div#registrationStep
+                    div(class='text-center mb-4')
+                        div(class='registration-icon-wrapper mb-3')
+                            i(class='bi bi-person-circle registration-icon')
+                    form#registerForm(class='custom-form')
+                        div(class='form-floating mb-3')
+                            input#email(type='email' class='form-control custom-input' placeholder='name@example.com' required)
+                            label(for='email')
+                                i(class='bi bi-envelope me-2')
+                                | Email
+                        div(class='form-floating mb-3')
+                            input#password(type='password' class='form-control custom-input' placeholder='Mật khẩu' required)
+                            label(for='password')
+                                i(class='bi bi-lock me-2')
+                                | Mật khẩu
+                        div(class='password-strength')
+                            div#passwordStrengthBar(class='progress')
+                                div#passwordStrengthIndicator(class='progress-bar' role='progressbar' style='width: 0%')
+                            small#passwordStrengthText(class='text-muted')
+                        div(class='form-floating mb-4')
+                            input#confirmPassword(type='password' class='form-control custom-input' placeholder='Nhập lại mật khẩu' required)
+                            label(for='confirmPassword')
+                                i(class='bi bi-shield-lock me-2')
+                                | Nhập lại mật khẩu
+                        button(type='submit' class='btn btn-primary btn-lg w-100 mb-3 custom-button') Tiếp Tục
+                        div(class='text-center')
+                            span(class='text-muted') Đã có tài khoản?
+                            a(href='#' class='text-primary text-decoration-none ms-2') Đăng nhập
+                div#verificationStep(style='display: none;')
+                    div(class='text-center mb-4')
+                        div(class='verification-icon-wrapper mb-3')
+                            i(class='bi bi-shield-check verification-icon')
+                        h5(class='mb-3') Xác Minh Email Của Bạn
+                        p(class='text-muted my-email') Chúng tôi đã gửi mã xác minh đến email của bạn
+                        p(class='text-muted') Lưu ý: Vui lòng kiểm tra tất cả các thư mục của email (Hộp thư đến, Quảng cáo, Thư rác,...)
+                    form#verificationForm
+                        div(class='verification-box mb-4')
+                            input(type='text' maxlength='1' class='verification-input' required)
+                            input(type='text' maxlength='1' class='verification-input' required)
+                            input(type='text' maxlength='1' class='verification-input' required)
+                            input(type='text' maxlength='1' class='verification-input' required)
+                        button(type='submit' class='btn btn-primary btn-lg w-100 mb-3 custom-button') Tiếp Tục
+                        button#backToRegister(type='button' class='btn btn-link w-100') Quay Lại
