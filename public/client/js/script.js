@@ -95,7 +95,7 @@ document
         const res = await fetch('/user/send-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ email }),
         });
 
         const data = await res.json();
@@ -119,8 +119,7 @@ document
         const otp = Array.from(document.querySelectorAll('.verification-input'))
             .map((input) => input.value)
             .join('');
-        const password = document.getElementById('password').value; // Lấy mật khẩu để tạo tài khoản sau khi nhập OTP
-
+        const password = document.getElementById('password').value;
         const res = await fetch('/user/verify-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -130,7 +129,7 @@ document
         const data = await res.json();
         if (res.ok) {
             Swal.fire({ icon: 'success', text: data.message }).then(() => {
-                window.location.href = '/login'; // Chuyển hướng đến trang đăng nhập
+                window.location.href = '/user/profile';
             });
         } else {
             Swal.fire({ icon: 'error', text: data.message });
@@ -158,3 +157,27 @@ verificationInputs.forEach((input, index) => {
         }
     });
 });
+
+// Đăng nhập
+document
+    .getElementById('loginForm')
+    .addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const email = document.getElementById('emailLogin').value;
+        const password = document.getElementById('passwordLogin').value;
+
+        const res = await fetch('/user/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+        });
+
+        const result = await res.json();
+        if (result.success) {
+            Swal.fire('Thành công!', result.message, 'success').then(() => {
+                window.location.href = '/';
+            });
+        } else {
+            Swal.fire('Thất bại!', result.message, 'error');
+        }
+    });

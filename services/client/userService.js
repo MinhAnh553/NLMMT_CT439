@@ -65,7 +65,25 @@ const verifyOTPAndRegister = async (email, otp, password) => {
     return { message: 'Đăng ký thành công!' };
 };
 
+const login = async (email, password) => {
+    const user = await userModel.findOne({
+        email,
+        deleted: false,
+    });
+
+    if (!user) throw new Error('Email không tồn tại');
+
+    if (user.status == 'inactive') throw new Error('Tài khoản đã bị khóa!');
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) throw new Error('Mật khẩu không đúng');
+
+    // Vượt qua tất cả case thì trả về thông tin user
+    return user;
+};
+
 export default {
     sendOTP,
     verifyOTPAndRegister,
+    login,
 };

@@ -26,7 +26,32 @@ const verifyOTPAndRegister = async (req, res) => {
     }
 };
 
+// [POST] /user/login
+const loginUser = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await userService.login(email, password);
+        req.session.user = user;
+
+        res.status(200).json({
+            success: true,
+            message: 'Đăng nhập thành công!',
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message });
+    }
+};
+
+// [POST] /user/logout
+const logoutUser = async (req, res) => {
+    req.session.destroy(() => {
+        res.redirect('/');
+    });
+};
+
 export default {
     sendOTP,
     verifyOTPAndRegister,
+    loginUser,
+    logoutUser,
 };

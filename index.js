@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 import bodyParser from 'body-parser';
+import session from 'express-session';
+import MongoDBStore from 'connect-mongodb-session';
 
 import * as database from './config/database.js';
 import { clientRoute } from './routes/client/indexRoute.js';
@@ -13,6 +15,24 @@ dotenv.config();
 // App, port
 const app = express();
 const port = process.env.PORT;
+
+// Session database
+const MongoDBStoreSession = MongoDBStore(session);
+
+const store = new MongoDBStoreSession({
+    uri: process.env.MONGO_URL,
+    collection: 'sessions',
+});
+
+app.use(
+    session({
+        secret: 'day-la-nien-luan-cua-minh-anh',
+        resave: false,
+        saveUninitialized: false,
+        store: store,
+        cookie: { maxAge: 1000 * 60 * 60 },
+    }),
+);
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));

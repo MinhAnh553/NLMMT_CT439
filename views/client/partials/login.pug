@@ -1,0 +1,35 @@
+div#loginModal(class='modal fade' tabindex='-1' aria-labelledby='loginModalLabel' aria-hidden='true')
+    div(class='modal-dialog modal-dialog-centered')
+        div(class='modal-content glass-effect')
+            div(class='modal-header border-0')
+                h4#loginModalLabel(class='modal-title fw-bold') Đăng nhập
+                button(type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close')
+            div(class='modal-body p-4')
+                div(class='text-center mb-4')
+                    div(class='registration-icon-wrapper mb-3')
+                        i(class='bi bi-person-circle registration-icon')
+                form#loginForm(class='custom-form')
+                    div(class='form-floating mb-3')
+                        input#emailLogin(type='email' class='form-control custom-input' placeholder='name@example.com' required)
+                        label(for='emailLogin')
+                            i(class='bi bi-envelope me-2')
+                            | Email
+                    div(class='form-floating mb-3')
+                        input#passwordLogin(type='password' class='form-control custom-input' placeholder='Mật khẩu' required)
+                        label(for='passwordLogin')
+                            i(class='bi bi-lock me-2')
+                            | Mật khẩu
+                    
+                    button(type='submit' class='btn btn-primary btn-lg w-100 mb-3 custom-button') Đăng nhập
+                    div(class='text-center')
+                        span(class='text-dark') Quên mật khẩu?
+                    div(class='text-center')
+                        span(class='text-muted') Chưa có tài khoản?
+                        a(href='#' class='text-primary text-decoration-none ms-2' data-bs-toggle='modal' data-bs-target='#registerModal' data-bs-dismiss='modal') Tạo tài khoản
+                
+if showLoginModal
+    script.
+        document.addEventListener('DOMContentLoaded', () => {
+            var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
+        });
