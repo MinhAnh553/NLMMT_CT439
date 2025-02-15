@@ -1,8 +1,8 @@
 const otpTemplate = (otp) => `
     <div style="font-family: Arial, sans-serif; max-width: 500px; margin: auto; border: 1px solid #ddd; border-radius: 8px; padding: 20px; text-align: center; background-color: #f9f9f9;">
-        <h2 style="color: #007bff;">🔐 Mã Xác Minh OTP</h2>
+        <h2 style="color: #007bff;">🔐 Mã Xác Minh</h2>
         <p style="font-size: 16px; color: #333;">Chào bạn,</p>
-        <p style="font-size: 16px; color: #333;">Dưới đây là mã xác minh OTP của bạn:</p>
+        <p style="font-size: 16px; color: #333;">Dưới đây là mã xác minh của bạn:</p>
         <div style="font-size: 24px; font-weight: bold; color: #d9534f; background: #f8d7da; padding: 10px; border-radius: 5px; display: inline-block;">
             ${otp}
         </div>

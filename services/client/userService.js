@@ -25,7 +25,7 @@ const sendOTP = async (email) => {
 
     if (existingOtp) {
         throw new Error(
-            'OTP đã được gửi. Vui lòng kiểm tra email và nhập mã trước khi yêu cầu lại.',
+            'Mã xác minh đã được gửi. Vui lòng kiểm tra email và nhập mã trước khi yêu cầu lại.',
         );
     }
 
@@ -41,18 +41,22 @@ const sendOTP = async (email) => {
     });
     await otpRecord.save();
 
-    await emailProvider.sendMail(email, 'Mã Xác Minh OTP', otpTemplate(otp));
+    await emailProvider.sendMail(
+        email,
+        'Melody Meet - Mã Xác Minh',
+        otpTemplate(otp),
+    );
 
-    return { message: 'OTP đã được gửi đến email của bạn' };
+    return { message: 'Mã xác minh đã được gửi đến email của bạn' };
 };
 
 const verifyOTPAndRegister = async (email, otp, password) => {
     const otpRecord = await otpModel.findOne({ email, otp });
-    if (!otpRecord) throw new Error('OTP không đúng hoặc đã hết hạn');
+    if (!otpRecord) throw new Error('Mã xác minh không đúng hoặc đã hết hạn');
 
     if (otpRecord.expiresAt < new Date()) {
         await otpModel.deleteMany({ email });
-        throw new Error('OTP đã hết hạn');
+        throw new Error('Mã xác minh đã hết hạn');
     }
 
     await otpModel.deleteMany({ email });
