@@ -66,7 +66,10 @@ const verifyOTPAndRegister = async (email, otp, password) => {
     const user = new userModel({ email, password: hashedPassword });
     await user.save();
 
-    return { message: 'Đăng ký thành công!' };
+    return {
+        user,
+        message: 'Đăng ký thành công!',
+    };
 };
 
 const login = async (email, password) => {

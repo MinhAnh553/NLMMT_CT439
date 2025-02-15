@@ -129,7 +129,7 @@ document
         const data = await res.json();
         if (res.ok) {
             Swal.fire({ icon: 'success', text: data.message }).then(() => {
-                window.location.href = '/user/profile';
+                window.location.href = '/';
             });
         } else {
             Swal.fire({ icon: 'error', text: data.message });
@@ -181,3 +181,11 @@ document
             Swal.fire('Thất bại!', result.message, 'error');
         }
     });
+
+// Đăng xuất
+const buttonLogout = document.querySelector('.action-logout');
+if (buttonLogout) {
+    buttonLogout.addEventListener('click', async function (e) {
+        window.location.href = '/user/logout';
+    });
+}

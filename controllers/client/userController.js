@@ -20,6 +20,9 @@ const verifyOTPAndRegister = async (req, res) => {
             otp,
             password,
         );
+
+        req.session.user = response.user;
+
         res.status(200).json(response);
     } catch (error) {
         res.status(400).json({ message: error.message });

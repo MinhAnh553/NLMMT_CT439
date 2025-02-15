@@ -83,6 +83,22 @@ header .form-control {
     height: 40px;
 }
 
+/* Tài khoản */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-item {
+    transition: background 0.3s ease-in-out;
+}
+
+.dropdown-item:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+/*  */
+
 .create-event {
     width: 100%;
     text-align: center;

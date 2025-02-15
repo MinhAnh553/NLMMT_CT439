@@ -5,6 +5,12 @@ const isAuthorized = (req, res, next) => {
     next();
 };
 
+const infoUser = (req, res, next) => {
+    res.locals.user = req.session.user || null;
+    next();
+};
+
 export default {
     isAuthorized,
+    infoUser,
 };
