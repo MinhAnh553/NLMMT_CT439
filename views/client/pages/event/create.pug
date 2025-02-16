@@ -1,0 +1,89 @@
+extends ../../layouts/eventManagement.pug
+
+block main
+    form#eventForm(enctype='multipart/form-data')
+        div(class='card-dark')
+            h6(class="form-item-required") Upload hình ảnh
+            div(class='row')
+                div(class='col-md-3')
+                    .upload-box(id="uploadLogo")
+                        i(id="iconLogo" class="fas fa-upload fa-2x text-success")
+                        p(id="textLogo" class="mt-1") Thêm ảnh logo sự kiện
+                        img(id="previewLogo" style="display: none; max-width: 100%; height: auto; border-radius: 5px;")
+                        input(type="file" name='eventLogo' id="logoInput" accept="image/*" style="display: none")
+
+                div(class='col-md-9')
+                    .upload-box(id="uploadBackground")
+                        i(id="iconBackground" class="fas fa-upload fa-2x text-success")
+                        p(id="textBackground" class="mt-1") Thêm ảnh nền sự kiện
+                        img(id="previewBackground" style="display: none; max-width: 100%; height: auto; border-radius: 5px;")
+                        input(type="file" name='eventBackground' id="backgroundInput" accept="image/*" style="display: none")
+            div(class='mt-3 col-md-12 mb-3')
+                label(class='form-label form-item-required' for='eventName') Tên sự kiện
+                input(type='text' class='form-control' id='eventName' name='eventName' placeholder='Tên sự kiện' maxlength='100')
+
+
+        div(class='card-dark mt-4')
+            h6(class="form-item-required") Địa chỉ sự kiện
+            div(class='row mt-3')
+                div(class='col-md-6 mb-3')
+                    label(class='form-label form-item-required') Tên địa điểm
+                    input(type='text' name='venueName' class='form-control' placeholder='Tên địa điểm')
+                div(class='col-md-6 mb-3')
+                    label(class='form-label form-item-required') Tỉnh/Thành
+                    select#province(class='form-select' name='province')
+                        option Chọn tỉnh/thành
+                div(class='col-md-6 mb-3')
+                    label(class='form-label form-item-required') Quận/Huyện
+                    select#district(class='form-select' name='district')
+                        option Chọn quận/huyện
+                div(class='col-md-6 mb-3')
+                    label(class='form-label form-item-required') Phường/Xã
+                    select#ward(class='form-select' name='ward')
+                        option Chọn phường/xã
+                div(class='col-md-12 mb-3')
+                    label(class='form-label form-item-required') Số nhà, đường
+                    input(type='text' name='address' class='form-control' placeholder='Số nhà, đường')
+
+        div(class='card-dark mt-4')
+            label(class='form-label form-item-required') Thông tin sự kiện
+            textarea#eventDescription(class='mt-3 form-control' name='description')
+                p
+                    strong Giới thiệu sự kiện:
+                p [T&amp;oacute;m tắt ngắn gọn về sự kiện: Nội dung ch&amp;iacute;nh của sự kiện, điểm đặc sắc nhất v&amp;agrave; l&amp;yacute; do khiến người tham gia kh&amp;ocirc;ng n&amp;ecirc;n bỏ lỡ]
+                p
+                    strong Chi tiết sự kiện:
+                ul
+                    li
+                        strong Chương tr&amp;igrave;nh ch&amp;iacute;nh:
+                        | [Liệt k&amp;ecirc; những hoạt động nổi bật trong sự kiện: c&amp;aacute;c phần tr&amp;igrave;nh diễn, kh&amp;aacute;ch mời đặc biệt, lịch tr&amp;igrave;nh c&amp;aacute;c tiết mục cụ thể nếu c&amp;oacute;.]
+                    li
+                        strong Kh&amp;aacute;ch mời:
+                        | [Th&amp;ocirc;ng tin về c&amp;aacute;c kh&amp;aacute;ch mời đặc biệt, nghệ sĩ, diễn giả sẽ tham gia sự kiện. C&amp;oacute; thể bao gồm phần m&amp;ocirc; tả ngắn gọn về họ v&amp;agrave; những g&amp;igrave; họ sẽ mang lại cho sự kiện.]
+                    li
+                        strong Trải nghiệm đặc biệt:
+                        | [Nếu c&amp;oacute; c&amp;aacute;c hoạt động đặc biệt kh&amp;aacute;c như workshop, khu trải nghiệm, photo booth, khu vực check-in hay c&amp;aacute;c phần qu&amp;agrave;/ưu đ&amp;atilde;i d&amp;agrave;nh ri&amp;ecirc;ng cho người tham dự.]
+                p
+                    strong Điều khoản v&amp;agrave; điều kiện:
+                p [TnC] sự kiện
+                p Lưu &amp;yacute; về điều khoản trẻ em
+                p Lưu &amp;yacute; về điều khoản VAT
+
+        div(class='card-dark mt-4 mb-5')
+        div(class='row')
+            div(class='col-md-2')
+                .upload-box(id="uploadOrganizer")
+                    i(id="iconOrganizer" class="fas fa-upload fa-2x text-success")
+                    p(id="textOrganizer" class="mt-1") Thêm logo ban tổ chức
+                    img(id="previewOrganizer" style="display: none; max-width: 100%; height: auto; border-radius: 5px;")
+                    input(type="file" name='organizerLogo' id="organizerInput" accept="image/*" style="display: none")
+
+
+
+            div(class='col-md-10')
+                div(class='mb-3')
+                    label(class='form-label form-item-required' for='eventName') Tên ban tổ chức
+                    input(type='text' name='organizerName' class='form-control' id='eventName' placeholder='Tên ban tổ chức' maxlength='100')
+                div(class='mb-3')
+                    label(class='form-label form-item-required' for='eventName') Thông tin ban tổ chức
+                    input(type='text' name='organizerInfo' class='form-control' id='eventName' placeholder='Thông tin ban tổ chức')
